@@ -2,14 +2,34 @@
 @model PrivacyModel
 @{
     ViewData["Title"] = "Razor";
+
+    // Variables
+    string DateAndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+    DayOfWeek weekDay = DateTime.Today.DayOfWeek;
+    string monday;
+
+    // Is it monday or not?
+    if (weekDay == DayOfWeek.Monday)
+    {
+        monday = "måndag";
+    } else
+    {
+        monday = "inte måndag";
+    }
+
+    // Courses
+    string[] courses = { "DT057G, Webbutveckling I", "DT084G, Introduktion till programmering i JavaScript", "GD008G, Typografi och form för webb", "DT163G, Digital bildbehandling för webb", "DT093G, Webbutveckling II", "DT003G, Databaser", "DT071G, Programmering i C#.NET" };
 }
 <h2>@ViewData["Title"]</h2>
 
 <strong>Information</strong>
-<p>Datum/klockslag: <span id="dateandtime"></span></p>
-<p>Idag är det <span id="dayotw"></span>!</p>
+<p>Datum/klockslag: <span>@DateAndTime</span></p>
+<p>Idag är det <span>@monday</span>!</p>
 
 <strong>Kurser jag har läst</strong>
-<ul id="courses">
-
+<ul>
+    <!-- Write each course into the list -->
+    @foreach (string course in courses) {
+        <li>@course</li>
+    }
 </ul>

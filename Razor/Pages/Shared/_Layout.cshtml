@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+   // Variables
+   string yearMonthDay = DateTime.Now.ToString("yyyy-MM-dd");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,7 +24,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="date">
-                            <p>Dagens datum är: <span id='date-time'></span></p>
+                            <p>Dagens datum är: <span>@yearMonthDay</span></p>
                         </li>
                     </ul>
                 </div>
